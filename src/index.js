@@ -10,6 +10,7 @@ import './styles.scss';
 
 const rootElement = document.getElementById('root');
 
+//Be sure to use my REDUCER here, not inital state.
 const store = createStore(reducer);
 
 
