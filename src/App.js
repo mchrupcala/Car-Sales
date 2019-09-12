@@ -4,21 +4,21 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 import { connect } from 'react-redux';
-import { buyItemAC } from './actions';
+import { buyItemAC, removeFeatureAC } from './actions';
 
 //"Map state to props"...don't forget to pass in the state I receive from Redux...as props!
 const App = props => {
 
 
   const buyItem = item => {
-    // dipsatch an action here to add an item
-    console.log('Made it to handler!', item);
     //I needed props here, but I'm not sure why...without props, but action will get called and display a console.log. So it won't go to the reducer without 'props', but why?
     props.buyItemAC(item);
   };
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
+    console.log("Hi from removeFeature", item)
+    props.removeFeatureAC(item)
   };
 
 
@@ -26,7 +26,8 @@ const App = props => {
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures car={props.car}
+        removeFeature={removeFeature} />
       </div>
 
       <div className="box">
@@ -43,7 +44,7 @@ const App = props => {
 };
 
 const mapStateToProps = state => {
-  console.log('mSTP console says: ', state);
+  // console.log('mSTP console says: ', state);
   return {
     additionalPrice: state.additionalPrice,
     car: state.car,
@@ -53,4 +54,4 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-   {buyItemAC})(App); 
+   {buyItemAC, removeFeatureAC})(App); 

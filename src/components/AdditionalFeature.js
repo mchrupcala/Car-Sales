@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const AdditionalFeature = props => {
-  const [feature, setFeature] = useState('');
 
   return (
     <li>
       
-      <button className="button" onClick={() => props.buyItem({name: props.feature.name, price: props.feature.price})}>Add</button>
+      <button className="button" onClick={() => props.buyItem({
+        id: props.feature.id,
+        name: props.feature.name, 
+        price: props.feature.price
+        })}>Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
