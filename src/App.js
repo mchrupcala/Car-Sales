@@ -17,7 +17,6 @@ const App = props => {
 
   const removeFeature = item => {
     // dispatch an action here to remove an item
-    console.log("Hi from removeFeature", item)
     props.removeFeatureAC(item)
   };
 
@@ -44,7 +43,6 @@ const App = props => {
 };
 
 const mapStateToProps = state => {
-  // console.log('mSTP console says: ', state);
   return {
     additionalPrice: state.additionalPrice,
     car: state.car,

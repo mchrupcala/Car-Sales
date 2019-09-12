@@ -21,9 +21,9 @@ export const reducer = (state = initialState, action) => {
     switch (action.type) {
 
         case BUY_ITEM:
-        // console.log("Payload is: ", action.payload);
         return {
             ...state,
+            additionalPrice: state.additionalPrice + action.payload.price,
             car: {
                 ...state.car,
                 features: [
@@ -34,9 +34,9 @@ export const reducer = (state = initialState, action) => {
         };
 
         case REMOVE_ITEM:
-        console.log("Removing", action.payload.id);
         return {
             ...state,
+            additionalPrice: state.additionalPrice - action.payload.price,
             car: {
                 ...state.car,
                 features: [
