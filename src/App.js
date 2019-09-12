@@ -23,13 +23,13 @@ const App = props => {
 
   return (
     <div className="boxes">
-      <div className="box">
+      <div className="box left-box">
         <Header car={props.car} />
         <AddedFeatures car={props.car}
         removeFeature={removeFeature} />
       </div>
 
-      <div className="box">
+      <div className="box right-box">
         <AdditionalFeatures 
           store={props.store}
           buyItem={buyItem} 
